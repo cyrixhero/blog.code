@@ -1,0 +1,25 @@
+;; -*- mode: lisp -*-
+(:author "TĀM KHUN‧HONG"
+	 :title "VE0gS0hVTkhPTkc="
+	 :theme "onecol"
+	 :deploy-dir "~/blog.onion"
+	 :domain "http://cyrixydkus7sojqlbnomcfkszwnldzwlqoltji7do6xix5zcadwnhwqd.onion"
+	 :feeds ("blog")
+	 :plugins ((analytics :tracking-code "")
+		   (mathjax)
+		   (static-pages)
+		   (sitemap))
+	 :routing ((:post           "posts/~a")
+		   (:tag-index      "tag/~a")
+		   (:month-index    "date/~a")
+		   (:numeric-index  "~d")
+		   (:feed           "~a.xml")
+		   (:tag-feed       "tag/~a.xml"))
+	 :sitenav ((:url "index.html" :name "Posts" :relative t)
+		   (:url "about.html" :name "About" :relative t)
+		   (:url "http://cyrixydkus7sojqlbnomcfkszwnldzwlqoltji7do6xix5zcadwnhwqd.onion/static/files/pgp.pub.asc" :name "PGP")
+		   ;;(:url "rss.xml" :name "RSS" :relative t)
+		   ;;(:url "https://twitter.com/cyrixhero" :name "Twitter")
+           )
+	 :staging-dir "/tmp/coleslaw/"
+	 :license "<a rel=\"license\" href=\"https://gitlab.com/0x7cc/0x7cc.net/blob/master/LICENSE\">BSD License</a>")
