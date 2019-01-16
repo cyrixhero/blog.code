@@ -1,0 +1,68 @@
+{namespace coleslaw.theme.onecol}
+{template base}
+  <!DOCTYPE html>
+  <html lang="{$config.lang}">
+    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <title>{$config.title}</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="author" content="{$config.author}" />
+    <meta http-equiv="content-type" content="text/html; charset={$config.charset}" />
+    <link href= "{$config.domain}/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="pgpkey" type="application/pgp-keys" title="TĀM KHUN‧HONG GPG Public Key" href="{$config.domain}/static/files/pgp.pub.asc">
+    {if $injections.head}
+      {foreach $injection in $injections.head}
+	{$injection |noAutoescape}
+      {/foreach}
+    {/if}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Fira+Mono" rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div id="page-wrap">
+      <div>
+	<header id="header">
+	  <div class="logo">
+	    <h1><a href="/"><span class="logo-black">{$config.title}</span></a></h1>
+	  </div>
+	  <div class="fortune">
+	    <blockquote id="main-blockquote">
+	      "2019-01-07 04:33:17: [650] DEBUG: ROC is not interesting"
+	    </blockquote>
+	    <p class="attribution">/usr/local/plan/bin/killroc</p>
+	  </div>
+	  <ul id="main-nav">
+	    {foreach $link in $config.sitenav}
+	      {if $link.relative}
+		<li><a href="{$config.domain}/{$link.url}">{$link.name}</a></li>
+	      {else}
+		<li><a href="{$link.url}">{$link.name}</a></li>
+	      {/if}
+	    {/foreach}
+	  </ul>
+	</header>
+      </div>
+      <div id="content">
+	{$raw |noAutoescape}
+      </div>
+      {if $injections.body}
+	{foreach $injection in $injections.body}
+	  {$injection |noAutoescape }
+	{/foreach}
+      {/if}
+      <div id="footer">
+	<div class="copyright">
+	  <p>Powered by <a href="https://github.com/kingcons/coleslaw" target="_blank">c0&lambda;&isin;slaw&#x2588;</a></p>
+	  <p><a href="mailto:zhan@cyrixhero.net">{$config.author}</a> use the theme from {$config.license |noAutoescape}</p>
+	  <script type="text/javascript">document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();</script>
+	</div>
+      </div>
+    </div>
+  </body>
+    </html>
+  {/template}

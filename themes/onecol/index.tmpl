@@ -1,0 +1,30 @@
+{namespace coleslaw.theme.onecol}
+{template index}
+<h1 class="title">{$index.title}</h1>
+{foreach $obj in $index.content}
+  <div class="article-meta">
+    <a class="article-title" href="{$config.domain}/{$obj.url}">{$obj.title}</a>
+    <div class="date-meta"> posted on {$obj.date}</div>
+  </div>
+{/foreach}
+<div id="relative-nav">
+  {if $prev} <a href="{$config.domain}/{$prev.url}">Previous</a> {/if}
+  {if $next} <a href="{$config.domain}/{$next.url}">Next</a> {/if}
+</div>
+{if $tags}
+<div id="tagsoup">
+    {foreach $tag in $tags}
+      <a href="{$config.domain}/{$tag.url}">{$tag.name}</a>{nil}
+      {if not isLast($tag)}{sp}{nil}{/if}
+    {/foreach}
+</div>
+{/if}
+{if $months}
+<div id="monthsoup">
+      {foreach $month in $months}
+      <a href="{$config.domain}/{$month.url}">{$month.name}</a>
+      {if not isLast($month)}{sp}{nil}{/if}
+    {/foreach}
+  </div>
+{/if}
+{/template}

@@ -1,0 +1,29 @@
+{namespace coleslaw.theme.onecol}
+{template post}
+<div class="article-meta">{\n}
+  <h1 class="title">{$post.title}</h1>{\n}
+  <div id="tagsoup">{\n}
+    {if $post.tags}
+      {foreach $tag in $post.tags}
+	<a href="{$config.domain}/{$tag.url}">{$tag.name}</a>{nil}
+	  {if not isLast($tag)}{sp}{/if}
+      {/foreach}
+    {/if}
+  </div>{\n}
+
+</div>{\n}
+<div class="article-content">{\n}
+  {$post.text |noAutoescape}
+</div>{\n}
+<div class="date-meta">{\n}
+    {if $post.date}
+      by {$post.author}</br>
+      Written on {$post.date}
+    {/if}
+</div>{\n}
+<div class="pager">{\n}
+  {if $prev} <a id="prev" href="{$config.domain}/{$prev.url}">Previous</a> {/if}{\n}
+  {if $prev and $next}&nbsp;&nbsp;&nbsp;&nbsp;{/if}
+  {if $next} <a id="next" href="{$config.domain}/{$next.url}">Next</a> {/if}{\n}
+</div>{\n}
+{/template}
